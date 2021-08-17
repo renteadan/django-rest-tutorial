@@ -18,7 +18,8 @@ class ShoppingListItemSerializer(serializers.ModelSerializer):
 
 
 class ShoppingListSerializer(serializers.ModelSerializer):
-    items = ShoppingListItemSerializer(many=True)
+    items = ShoppingListItemSerializer(
+        source='shoppinglistitem_set', many=True)
 
     class Meta:
         model = ShoppingList
